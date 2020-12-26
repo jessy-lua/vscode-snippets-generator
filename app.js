@@ -14,9 +14,9 @@ const BUILTIN_FUNCTIONS_URL = 'https://raw.githubusercontent.com/jessy-lua/docs/
 
         for(let function_name in builtin_functions[table_name]) {
             const entry = builtin_functions[table_name][function_name];
-            const snippet_command = table_name === "_" ? function_name : `${table_name}.${function_name}`;
+            const snippet_command = table_name === "_G" ? function_name : `${table_name}.${function_name}`;
             snippets[snippet_command] = {
-                "prefix": table_name === "_" ? snippet_command : [ snippet_command, function_name ]
+                "prefix": table_name === "_G" ? snippet_command : [ snippet_command, function_name ]
             }
             if ('description' in entry) {
                 snippets[snippet_command]['description'] = entry.description;
